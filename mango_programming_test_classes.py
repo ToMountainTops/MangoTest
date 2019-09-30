@@ -10,37 +10,45 @@ For common pdf, it can be found in python.stats. For unususal cdfs, the inverted
 """
 #%%
 
-from numpy import random
+import numpy as np
 
 class Bound_exception(Exception):
     pass
 
-class Random_distribution:
+class Distribution:
 
     def Normal(mean, standard_deviation, size):
-        return random.normal(mean, standard_deviation, size)
+        return np.random.normal(mean, standard_deviation, size)
         
     def Poisson(lamb, size): #with lamb the average rate of success
-        return random.poisson(lamb, size)
+        return np.random.poisson(lamb, size)
     
     def Binomial(n, p, size): #with n the number of trials and p the probability of success (with p between 0 and 1)
         if p<0 or p>1:
             raise Bound_exception("p needs to be between 0 and 1.") #raised an error is p is out of bound
         else:
-            return random.binomial(n, p, size)
+            return np.random.binomial(n, p, size)
+
+    def Summarize(self):
+        print("Minimum:", np.min(self))
+        print("Maximum:", np.max(self))
+        print("Mean:", np.mean(self))
+        print("Standard deviation:", np.std(self))
 
 
 #%%
-
+        
 """
 
-To test the results of the function, you can plot the sample distribution as follow:
+To test the results of the method, you can plot the sample distribution as follow:
 
 """        
         
 import matplotlib.pyplot as plt
 
-plt.hist(Random_distribution.Normal(0, 1, 300))
+sample = Distribution.Normal(0, 1, 300)
 
-plt.hist(Random_distribution.Binomial(10, 2, 300))
+plt.hist(sample)
+
+Distribution.Summarize(sample)
 
