@@ -1,5 +1,5 @@
 """
-Created on Sun Sep 28
+Created on Sun Sep 29
 For Mango Solutions Python test
 For any questions please contact Claire Blejean: claire.blejean@gmail.com
 
@@ -13,11 +13,8 @@ For common pdf, it can be found in python.stats. For unususal cdfs, the inverted
 import numpy as np
 import matplotlib.pyplot as plt
 
-class Bound_exception(Exception):
-    pass
-
 class Distribution:
-
+    
     def Normal(mean, standard_deviation, size):
         return np.random.normal(mean, standard_deviation, size)
         
@@ -38,13 +35,18 @@ class Distribution:
         
     def Plot(self):
         plt.hist(self)
+        
+class Bound_exception(Exception):
+    pass
 
 
 #%%
         
 """
 
-To test the results of the method, you can plot the sample distribution as follow:
+The methods belonging to this distribution class allow to draw from the three types of distributions.
+It also allows to summarize the drawn sample and to plot it. 
+An example is presented below.
 
 """        
 
@@ -53,4 +55,6 @@ sample = Distribution.Normal(0, 1, 100)
 Distribution.Summarize(sample)
 
 Distribution.Plot(sample)
+
+
 
