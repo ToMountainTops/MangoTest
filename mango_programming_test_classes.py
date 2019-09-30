@@ -11,6 +11,7 @@ For common pdf, it can be found in python.stats. For unususal cdfs, the inverted
 #%%
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 class Bound_exception(Exception):
     pass
@@ -25,7 +26,7 @@ class Distribution:
     
     def Binomial(n, p, size): #with n the number of trials and p the probability of success (with p between 0 and 1)
         if p<0 or p>1:
-            raise Bound_exception("p needs to be between 0 and 1.") #raised an error is p is out of bound
+            raise Bound_exception("p needs to be between 0 and 1.") #raise an error if p is out of bound
         else:
             return np.random.binomial(n, p, size)
 
@@ -34,6 +35,9 @@ class Distribution:
         print("Maximum:", np.max(self))
         print("Mean:", np.mean(self))
         print("Standard deviation:", np.std(self))
+        
+    def Plot(self):
+        plt.hist(self)
 
 
 #%%
@@ -43,12 +47,10 @@ class Distribution:
 To test the results of the method, you can plot the sample distribution as follow:
 
 """        
-        
-import matplotlib.pyplot as plt
 
-sample = Distribution.Normal(0, 1, 300)
-
-plt.hist(sample)
+sample = Distribution.Normal(0, 1, 100)
 
 Distribution.Summarize(sample)
+
+Distribution.Plot(sample)
 
