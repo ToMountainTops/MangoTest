@@ -1,6 +1,11 @@
 # MangoTest
 Submission for Mango Solution coding test.
 
+## Author
+
+Claire Blejean
+claire.blejean@gmail.com
+
 ## Data analysis
 
 >Read in the csv containing NBA free throws. Visualise some aspect of the data you find interesting, e.g., the average number of free throws per period for the regular season and the playoffs.
@@ -46,4 +51,4 @@ The package has been uploaded to the Python Packaging Index PyP and as such can 
 ` pip install mango_programming_test`
 
 Otherwise, the package is also submitted here in:
-`mango_programming_test
+`mango_programming_test_pkg`
