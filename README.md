@@ -1,5 +1,5 @@
 # MangoTest
-Submission for Mango Solution coding test.
+Submission for Mango Solutions coding test.
 
 ## Author
 
